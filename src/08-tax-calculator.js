@@ -27,4 +27,33 @@
  */
 export function calculateTax(income) {
   // Your code here
+ /**
+ * Sam's Tax Calculator
+ */
+  if (income <= 0) {
+    return 0; // negative ya zero income me tax = 0
+  }
+
+  let tax = 0;
+
+  // Bracket 2: 10,001 – 30,000 → 10%
+  if (income > 10000) {
+    let bracket2 = Math.min(income, 30000) - 10000;
+    tax += bracket2 * 0.10;
+  }
+
+  // Bracket 3: 30,001 – 70,000 → 20%
+  if (income > 30000) {
+    let bracket3 = Math.min(income, 70000) - 30000;
+    tax += bracket3 * 0.20;
+  }
+
+  // Bracket 4: 70,001+ → 30%
+  if (income > 70000) {
+    let bracket4 = income - 70000;
+    tax += bracket4 * 0.30;
+  }
+
+  return tax;
 }
+

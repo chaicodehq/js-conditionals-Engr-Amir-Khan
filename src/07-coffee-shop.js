@@ -32,4 +32,72 @@
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
   // Your code here
+
+
+
+  // let totalPrice = 0;
+
+
+
+  // if(size !== "small" && size !== "medium" && size !== "large"){
+  //   return -1
+  // }else if (type !== "regular" && type !== "latte" && type !== "cappuccino" && type !== "mocha"){
+  //   return -1
+  // }
+
+  // else if (size == "small"){
+  //   totalPrice=3.00;
+  // }
+  // else if (size == "medium"){
+  //   totalPrice=4.00
+  // }
+  // else if (size == "large"){
+  //   totalPrice=5.00;
+  // }
+
+
+  // if(type == "regular"){
+  //     totalPrice+=0.00;
+  // }else if (type == "latte"){
+  //   totalPrice+=1.00
+  // }else if (type == "cappuccino"){
+  //   totalPrice+=1.50;
+  // }else if (type == "mocha"){
+  //   totalPrice+=2.00
+  // }
+
+  let totalPrice = 0;
+
+  // Size validation
+  if (size !== "small" && size !== "medium" && size !== "large") {
+    return -1;
+  }
+
+  // Type validation
+  if (type !== "regular" && type !== "latte" && type !== "cappuccino" && type !== "mocha") {
+    return -1;
+  }
+
+  // Base price
+  if (size === "small") totalPrice = 3.00;
+  else if (size === "medium") totalPrice = 4.00;
+  else totalPrice = 5.00;
+
+  // Coffee type add-on
+  if (type === "latte") totalPrice += 1.00;
+  else if (type === "cappuccino") totalPrice += 1.50;
+  else if (type === "mocha") totalPrice += 2.00;
+
+  // Extras
+  // if (extras.whippedCream) totalPrice += 0.50;
+  // if (extras.extraShot) totalPrice += 0.75;
+
+  extras.whippedCream?totalPrice+=0.50 : 0;
+  extras.extraShot?totalPrice+=0.75 : 0;
+
+  // Round to 2 decimals
+  return Number(totalPrice.toFixed(2));
 }
+
+
+

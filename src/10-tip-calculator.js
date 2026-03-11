@@ -31,4 +31,94 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+
+  if(billAmount<=0 || serviceRating <1 || serviceRating >5 || !Number.isInteger(serviceRating)){
+
+    return null;
+  }
+
+    
+    
+  const calculateTip = {
+    tipPercentage:null,
+    tipAmount:null,
+    totalAmount:null
+  }
+
+ 
+
+
+   let tipAmounts = null;
+   let percentage = 0;
+  // let totalAmounts = 0;
+
+  switch(serviceRating){
+    case 1:
+      calculateTip.tipPercentage = 5;
+      percentage = 5;
+      tipAmounts = Number((billAmount * percentage / 100).toFixed(2));
+      calculateTip.tipAmount = tipAmounts
+      calculateTip.totalAmount = Number((billAmount + tipAmounts).toFixed(2));
+      break;
+
+    case 2:
+      calculateTip.tipPercentage = 10;
+      percentage = 10;
+      tipAmounts = Number((billAmount * percentage / 100).toFixed(2))
+      calculateTip.tipAmount = tipAmounts
+      calculateTip.totalAmount = Number((billAmount + tipAmounts).toFixed(2));
+      break;
+    case 3:
+      calculateTip.tipPercentage = 15;
+      percentage = 15
+      tipAmounts = Number((billAmount * percentage /100).toFixed(2));
+      calculateTip.tipAmount = tipAmounts
+      calculateTip.totalAmount = Number((billAmount + tipAmounts).toFixed(2));
+      break;
+
+    case 4:
+      calculateTip.tipPercentage = 20;
+      percentage = 20;
+      tipAmounts = Number((billAmount * percentage /100).toFixed(2));
+      calculateTip.tipAmount = tipAmounts
+      calculateTip.totalAmount = Number((billAmount + tipAmounts).toFixed(2))
+      break;
+    default:
+      calculateTip.tipPercentage = 25;
+      percentage = 25
+      tipAmounts = Number((billAmount * percentage /100).toFixed(2));
+      calculateTip.tipAmount = tipAmounts
+      calculateTip.totalAmount = Number((billAmount + tipAmounts).toFixed(2))
+  }
+  
+
+
+
+  return calculateTip;
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
